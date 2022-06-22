@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import Player from '../components/Player';
+import Video from '../components/Video';
 import Sidebar from '../components/Sidebar';
 
 export default function Event() {
@@ -7,6 +7,7 @@ export default function Event() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex flex-1">
+        <Video />
         <Sidebar />
       </main>
     </div>
