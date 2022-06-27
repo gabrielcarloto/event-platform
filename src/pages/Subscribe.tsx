@@ -3,6 +3,8 @@ import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
 
+import CodeMockup from '../assets/code-mockup.png';
+
 export default function Subscribe() {
   const navigate = useNavigate();
 
@@ -77,7 +79,7 @@ export default function Subscribe() {
       </div>
 
       <img
-        src="/src/assets/code-mockup.png"
+        src={CodeMockup}
         className="mt-10"
         alt="Códigos programados em React, utilizando o editor VS Code, na linguagem Typescript"
       />
