@@ -8,6 +8,7 @@ import {
 
 import '@vime/core/themes/default.css';
 import { useGetLessonBySlugQuery } from '../generated';
+import VideoLoading from './VideoLoading';
 
 interface VideoProps {
   lessonSlug: string;
@@ -21,11 +22,7 @@ export default function Video({ lessonSlug }: VideoProps) {
   });
 
   if (!data || !data.lesson) {
-    return (
-      <div className="flex-1">
-        <p>Carregando...</p>
-      </div>
-    );
+    return <VideoLoading />;
   }
 
   return (
