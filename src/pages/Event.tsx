@@ -1,10 +1,23 @@
 import Header from '../components/Header';
 import Video from '../components/Video';
 import Sidebar from '../components/Sidebar';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
+import { useGetFirstAvailableLessonQuery } from '../generated';
 
 export default function Event() {
   const { slug } = useParams<{ slug: string }>();
+
+  if (!slug) {
+    const { data, loading } = useGetFirstAvailableLessonQuery();
+
+    if (!loading) {
+      if (!data) return <Navigate replace to="/" />;
+
+      const lessonSlug = data.lessons[0].slug;
+
+      return <Navigate replace to={`/event/lesson/${lessonSlug}`} />;
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen">

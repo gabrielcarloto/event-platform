@@ -5576,6 +5576,11 @@ export type CreateSubscriberMutationVariables = Exact<{
 
 export type CreateSubscriberMutation = { __typename?: 'Mutation', createSubscriber?: { __typename?: 'Subscriber', id: string } | null };
 
+export type GetFirstAvailableLessonQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetFirstAvailableLessonQuery = { __typename?: 'Query', lessons: Array<{ __typename?: 'Lesson', slug: string }> };
+
 export type GetLessonBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
 }>;
@@ -5623,6 +5628,40 @@ export function useCreateSubscriberMutation(baseOptions?: Apollo.MutationHookOpt
 export type CreateSubscriberMutationHookResult = ReturnType<typeof useCreateSubscriberMutation>;
 export type CreateSubscriberMutationResult = Apollo.MutationResult<CreateSubscriberMutation>;
 export type CreateSubscriberMutationOptions = Apollo.BaseMutationOptions<CreateSubscriberMutation, CreateSubscriberMutationVariables>;
+export const GetFirstAvailableLessonDocument = gql`
+    query GetFirstAvailableLesson {
+  lessons(orderBy: availableAt_ASC, first: 1) {
+    slug
+  }
+}
+    `;
+
+/**
+ * __useGetFirstAvailableLessonQuery__
+ *
+ * To run a query within a React component, call `useGetFirstAvailableLessonQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetFirstAvailableLessonQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetFirstAvailableLessonQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetFirstAvailableLessonQuery(baseOptions?: Apollo.QueryHookOptions<GetFirstAvailableLessonQuery, GetFirstAvailableLessonQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetFirstAvailableLessonQuery, GetFirstAvailableLessonQueryVariables>(GetFirstAvailableLessonDocument, options);
+      }
+export function useGetFirstAvailableLessonLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetFirstAvailableLessonQuery, GetFirstAvailableLessonQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetFirstAvailableLessonQuery, GetFirstAvailableLessonQueryVariables>(GetFirstAvailableLessonDocument, options);
+        }
+export type GetFirstAvailableLessonQueryHookResult = ReturnType<typeof useGetFirstAvailableLessonQuery>;
+export type GetFirstAvailableLessonLazyQueryHookResult = ReturnType<typeof useGetFirstAvailableLessonLazyQuery>;
+export type GetFirstAvailableLessonQueryResult = Apollo.QueryResult<GetFirstAvailableLessonQuery, GetFirstAvailableLessonQueryVariables>;
 export const GetLessonBySlugDocument = gql`
     query GetLessonBySlug($slug: String) {
   lesson(where: {slug: $slug}) {
