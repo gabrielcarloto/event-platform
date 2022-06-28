@@ -23,10 +23,9 @@ export default function Lesson(props: LessonProps) {
 
   const isActiveLesson = slug === props.slug;
 
-  return (
-    <Link to={`/event/lesson/${props.slug}`} className="group">
+  const Lesson = () => (
+    <>
       <span className="text-gray-300">{availableDateFormatted}</span>
-
       <div
         className={classNames(
           'rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500',
@@ -55,7 +54,6 @@ export default function Lesson(props: LessonProps) {
               Em breve
             </span>
           )}
-
           <span
             className={classNames(
               'text-xs rounded px-2 py-[0.125rem] text-white border font-bold',
@@ -68,7 +66,6 @@ export default function Lesson(props: LessonProps) {
             {props.type === 'live' ? 'AO VIVO' : 'AULA PRÁTICA'}
           </span>
         </header>
-
         <strong
           className={classNames('mt-5 block', {
             'text-white': isActiveLesson,
@@ -78,6 +75,20 @@ export default function Lesson(props: LessonProps) {
           {props.title}
         </strong>
       </div>
-    </Link>
+    </>
+  );
+
+  if (isLessonAvailable) {
+    return (
+      <Link to={`/event/lesson/${props.slug}`} className="group">
+        <Lesson />
+      </Link>
+    );
+  }
+
+  return (
+    <div>
+      <Lesson />
+    </div>
   );
 }
