@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { Config } from 'tailwindcss';
 
 interface LoadingProps {
   tailwindClasses?: string;
