@@ -1,8 +1,9 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { isPast, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { CheckCircle, Lock } from 'phosphor-react';
+import { useEffect } from 'react';
 
 interface LessonProps {
   title: string;
@@ -12,6 +13,7 @@ interface LessonProps {
 }
 
 export default function Lesson(props: LessonProps) {
+  const navigate = useNavigate();
   const { slug } = useParams<{ slug: string }>();
 
   const isLessonAvailable = isPast(props.availableAt);
@@ -22,6 +24,12 @@ export default function Lesson(props: LessonProps) {
   );
 
   const isActiveLesson = slug === props.slug;
+
+  useEffect(() => {
+    if (isActiveLesson && !isLessonAvailable) {
+      return navigate('/event');
+    }
+  }, []);
 
   const Lesson = () => (
     <>
