@@ -17,13 +17,13 @@ Este projeto foi desenvolvido durante o evento _Ignite Lab da RocketSeat_. O obj
 
 ### :computer: Tecnologias
 
-- [X] Vite
-- [X] React
-- [X] TailwindCSS
-- [X] GraphQL
-  - [X] GraphCMS
-  - [X] GraphQL Codegen
-  - [X] Apollo
+- [X] [Vite](vitejs.dev/)
+- [X] [React](https://pt-br.reactjs.org/)
+- [X] [TailwindCSS](https://tailwindcss.com/)
+- [X] [GraphQL](https://graphql.org/)
+  - [X] [GraphCMS](https://graphcms.com/)
+  - [X] [GraphQL Codegen](https://www.graphql-code-generator.com/)
+  - [X] [Apollo](https://www.apollographql.com/)
 
 ## :file_folder: Como rodar o projeto localmente
 

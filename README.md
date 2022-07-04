@@ -19,13 +19,13 @@ This project was developed during _RocketSeat's Ignite Lab_. The goal was to dev
 
 ### :computer: Tecnologias
 
-- [X] Vite
-- [X] React
-- [X] TailwindCSS
-- [X] GraphQL
-  - [X] GraphCMS
-  - [X] GraphQL Codegen
-  - [X] Apollo
+- [X] [Vite](vitejs.dev/)
+- [X] [React](https://reactjs.org/)
+- [X] [TailwindCSS](https://tailwindcss.com/)
+- [X] [GraphQL](https://graphql.org/)
+  - [X] [GraphCMS](https://graphcms.com/)
+  - [X] [GraphQL Codegen](https://www.graphql-code-generator.com/)
+  - [X] [Apollo](https://www.apollographql.com/)
 
 ## :running: How to run locally
 
